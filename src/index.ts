@@ -1,27 +1,25 @@
-import { Wall } from "./wall";
-import { isColliding } from "./localizable";
+import { initializeWalls, Wall } from "./wall";
+import { canvas, createGrid, GRID_SIZE } from "./grid";
+import { Player } from "./npc";
+import aStar from "a-star";
 
-let mapSizeX: number = 800;
-let mapSizeY: number = 600;
-let maxWallLen: number = 30;
+const walls = initializeWalls(5);
+const grid = createGrid(walls);
+const player = new Player();
 
-function initializeWalls(count: number) {
-    let walls: Wall[] = [];
-    for (let i: number = 0; i < count - 1; i++) {
-        let xAt = Math.round(Math.random() * mapSizeX - maxWallLen);
-        let yAt = Math.round(Math.random() * mapSizeY - maxWallLen);
-        let xLen = Math.round(Math.random() * maxWallLen);
-        let yLen = Math.round(Math.random() * maxWallLen);
-        let thickness = Math.round(Math.random() * 10);
-        let newWall = new Wall(
-            xAt,
-            yAt,
-            xAt + xLen,
-            yAt + yLen,
-            thickness
-        )
-        for (const wall of walls) {
-            if (!isColli)
-        }
+canvas.addEventListener("click", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+
+    const goalX = Math.floor(clickX / GRID_SIZE);
+    const goalY = Math.floor(clickY / GRID_SIZE);
+
+    const startX = Math.floor(player.x / GRID_SIZE);
+    const startY = Math.floor(player.y / GRID_SIZE);
+
+    const path = aStar.aStar(grid)
+    if (path) {
+        // TOOD player.setPath
     }
-}
+});

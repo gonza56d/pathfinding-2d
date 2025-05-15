@@ -1,10 +1,10 @@
 import { closestPointOnSegment } from "./localizable";
 import { Wall } from "./wall";
 
-const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement;
+export const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 const PLAYER_SIZE = 5
-const GRID_SIZE = 20;
+export const GRID_SIZE = 20;
 const ROWS = canvas.height / GRID_SIZE;
 const COLS = canvas.width / GRID_SIZE;
 
