@@ -1,0 +1,23 @@
+{
+  "name": "pathfinding-2d",
+  "version": "1.0.0",
+  "description": "Exercise implementing pathfinding in 2d games with TS.",
+  "main": "index.js",
+  "scripts": {
+    "build:client": "tsc src/client/game.ts --outDir public",
+    "build:server": "tsc src/server/server.ts --outDir dist",
+    "build": "npm run build:client && npm run build:server",
+    "start": "node dist/server.js",
+    "dev": "npm run build && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "astar-typescript": "^1.2.7"
+  }
+}
